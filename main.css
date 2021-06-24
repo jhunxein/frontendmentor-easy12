@@ -9,6 +9,8 @@
 	--color-neutral-2: hsla(0, 0%, 100%, 0.75);
 	--color-neutral-3: hsla(0, 0%, 100%, 0.6);
 
+	--transition: all 500ms ease;
+
 	--font-primary: 'Inter', sans-serif;
 	--font-secondary: 'Lexend Deca', sans-serif;
 }
@@ -30,7 +32,6 @@ body {
 }
 
 .main {
-	background-color: var(--color-primary-2);
 	color: var(--color-neutral-1);
 	width: 90%;
 	margin-top: 2em;
@@ -43,8 +44,11 @@ body {
 
 .img-wrapper {
 	width: 100%;
-	height: 100%;
+	height: 0;
 	position: relative;
+	transform: translateY(-200px);
+	transition: opacity 300ms ease 1.4s, transform 500ms ease 1.2s;
+	opacity: 0;
 }
 
 .img-wrapper::after {
@@ -79,21 +83,41 @@ body {
 	margin-right: auto;
 }
 
+/* sections - For Animation */
+.wrapper > .info {
+	transform: translateY(-200px);
+	opacity: 0;
+	transition: opacity 300ms ease 2.5s, transform 500ms ease 2.3s;
+}
+
+.wrapper > .status {
+	transform: translateY(200px);
+	opacity: 0;
+	transition: opacity 300ms ease 3.7s, transform 500ms ease 3.5s;
+}
+
+/* ****** */
+
 article {
 	display: grid;
 	grid-template-rows: 1fr 1.5fr;
+	background-color: var(--color-primary-2);
+
+	/* hide on load */
+	opacity: 0;
+	height: 0;
 }
 
 article h1 > span {
 	color: var(--color-primary-3);
 }
 
-.wrapper > h1 {
+.info > h1 {
 	line-height: 1.5em;
 	font-weight: 700;
 }
 
-.wrapper > p {
+.info > p {
 	font-size: 0.8em;
 	color: var(--color-neutral-2);
 	margin-top: 1.5em;
@@ -113,6 +137,9 @@ footer {
 	margin-bottom: 2em;
 	text-align: center;
 	color: var(--color-neutral-1);
+
+	opacity: 0;
+	height: 0;
 }
 
 .status {
@@ -167,6 +194,36 @@ footer {
 	white-space: normal !important;
 }
 
+/* HELPERS */
+.remove {
+	display: none;
+}
+.animate-onload {
+	transition: var(--transition);
+	opacity: 1;
+	height: auto;
+}
+
+.animate-onload > .img-wrapper:nth-child(1) {
+	opacity: 1;
+	transform: translateY(0px);
+	height: 100%;
+}
+
+.animate-onload > .wrapper .info {
+	opacity: 1;
+	transform: translateY(0px);
+	height: auto;
+}
+
+.animate-onload > .wrapper .status {
+	opacity: 1;
+	transform: translateY(0px);
+	height: auto;
+}
+
+/* ********** */
+
 @media only screen and (min-height: 768px) {
 	.container {
 		height: 100vh;
@@ -211,7 +268,7 @@ footer {
 		padding-right: 2em;
 	}
 
-	.wrapper > h1 {
+	.info > h1 {
 		font-size: 1.5em;
 	}
 
