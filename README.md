@@ -47,8 +47,10 @@ This is my first time to experience this on my journey as a self taught web deve
 
 Code snippets
 
+By the way, this is how I handled my css animation
+
 ```css
-.css-classes {
+.animation-loaded > .some-css-element {
 	transition: opacity 300ms ease 3.7s, transform 500ms ease 3.5s;
 }
 ```
