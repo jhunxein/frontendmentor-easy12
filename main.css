@@ -121,7 +121,7 @@ footer {
 
 .status p {
 	text-transform: uppercase;
-	font-size: 0.8em;
+	font-size: 0.6em;
 	color: var(--color-neutral-3);
 	letter-spacing: 0.1em;
 	margin-bottom: 1em;
@@ -132,7 +132,7 @@ footer {
 	letter-spacing: 0;
 	color: var(--color-neutral-1);
 	font-weight: 700;
-	font-size: 1.5em;
+	font-size: 2em;
 	text-transform: none;
 	display: block;
 }
@@ -213,9 +213,6 @@ footer {
 
 	.wrapper > h1 {
 		font-size: 1.5em;
-	}
-
-	.wrapper > p {
 	}
 
 	.status {
