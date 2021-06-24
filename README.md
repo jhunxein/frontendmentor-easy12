@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./dist/ss.jpg)
+![alt text](./dist/ss.jpg)
 
 ### Links
 
